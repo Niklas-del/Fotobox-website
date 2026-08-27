@@ -1,0 +1,9 @@
+# PROTOTYP-SICHERUNG — vor dem Livegang entfernen.
+# Solange dies ein unveröffentlichtes Konzept ist, soll nichts indexiert werden.
+User-agent: *
+Disallow: /
+
+# Ab Livegang gilt stattdessen:
+# User-agent: *
+# Allow: /
+# Sitemap: https://studio-confluentes.example/sitemap.xml
