@@ -1,0 +1,211 @@
+@import 'tailwindcss';
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Design tokens
+   A near-monochrome system: warm black, warm paper, one restrained brass
+   accent used only for hairlines and active states. The images carry the
+   colour, so the interface deliberately does not.
+   ────────────────────────────────────────────────────────────────────────── */
+@theme {
+  --color-ink: #0e0e10;
+  --color-ink-soft: #17171a;
+  --color-ink-mute: #232327;
+  --color-paper: #f5f2ed;
+  --color-paper-dim: #e8e3da;
+  --color-stone: #8d877d;
+  --color-stone-dark: #6b665e;
+  --color-brass: #b6935c;
+
+  --font-display: 'Instrument Serif', 'Iowan Old Style', 'Palatino Linotype', 'Times New Roman', serif;
+  --font-sans: 'Inter Tight Variable', 'Inter Tight', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+
+  --spacing-gutter: clamp(1.25rem, 5vw, 5.5rem);
+}
+
+/* ── base ─────────────────────────────────────────────────────────────── */
+@layer base {
+  :root {
+    color-scheme: dark;
+    --header-h: 4.5rem;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--header-h);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-ink);
+    color: var(--color-paper);
+    font-family: var(--font-sans);
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--color-brass);
+    color: var(--color-ink);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.015em;
+  }
+
+  /* One visible focus treatment for the whole site, keyboard only. */
+  :focus-visible {
+    outline: 2px solid var(--color-brass);
+    outline-offset: 3px;
+    border-radius: 1px;
+  }
+
+  /* Native form controls inherit the type system rather than the platform's. */
+  input, select, textarea, button {
+    font: inherit;
+    color: inherit;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+/* ── typographic utilities ────────────────────────────────────────────── */
+@utility label {
+  font-size: 0.6875rem;
+  line-height: 1;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+@utility display-xl {
+  font-family: var(--font-display);
+  font-size: clamp(3.25rem, 11vw, 10.5rem);
+  line-height: 0.88;
+  letter-spacing: -0.03em;
+}
+
+@utility display-lg {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6.6vw, 6rem);
+  line-height: 0.94;
+  letter-spacing: -0.025em;
+}
+
+@utility display-md {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.4vw, 3.25rem);
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+}
+
+@utility gutter {
+  padding-inline: var(--spacing-gutter);
+}
+
+/* ── motion ───────────────────────────────────────────────────────────── */
+
+/* Scroll reveal. The class is added by an IntersectionObserver; without JS or
+   with reduced motion the content is simply visible from the start. */
+@utility reveal {
+  opacity: 0;
+  transform: translateY(1.75rem);
+  transition:
+    opacity 1.1s var(--ease-out-expo),
+    transform 1.1s var(--ease-out-expo);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+@utility is-revealed {
+  opacity: 1;
+  transform: none;
+}
+
+/* Line-by-line mask reveal for the display headlines. */
+.line-mask {
+  display: block;
+  overflow: hidden;
+}
+.line-mask > span {
+  display: block;
+  transform: translateY(105%);
+  transition: transform 1.25s var(--ease-out-expo);
+  transition-delay: var(--line-delay, 0ms);
+}
+.is-revealed .line-mask > span,
+.line-mask.is-revealed > span {
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; }
+  .line-mask > span { transform: none; }
+}
+
+/* Slow drift on the hero plate — barely perceptible, adds life to a still. */
+@keyframes slow-scale {
+  from { transform: scale(1.06); }
+  to { transform: scale(1.14); }
+}
+
+@utility hero-drift {
+  animation: slow-scale 22s var(--ease-in-out-quart) infinite alternate;
+}
+
+/* ── link with a hairline that draws itself ───────────────────────────── */
+@utility underline-sweep {
+  position: relative;
+}
+@utility underline-sweep-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.15em;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(var(--sweep, 0));
+  transform-origin: left;
+  transition: transform 0.6s var(--ease-out-expo);
+}
+
+/* ── custom cursor (fine pointers only) ───────────────────────────────── */
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 90;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  will-change: transform;
+}
+
+@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .cursor-dot { display: none; }
+}
+
+/* Hide the scrollbar on the filter rail without losing the ability to scroll. */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

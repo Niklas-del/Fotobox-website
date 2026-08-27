@@ -1,0 +1,32 @@
+{
+  "name": "atelier-nordlicht-koblenz",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Konzept-Prototyp: Website-Redesign fuer einen Fotografen in Koblenz",
+  "scripts": {
+    "dev": "vite",
+    "build": "npm run images && tsc -b && vite build",
+    "build:only": "tsc -b && vite build",
+    "preview": "vite preview",
+    "images": "node scripts/generate-images.mjs",
+    "typecheck": "tsc -b --pretty false"
+  },
+  "dependencies": {
+    "@fontsource-variable/inter-tight": "^5.3.0",
+    "@fontsource/instrument-serif": "^5.3.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.5",
+    "@vitejs/plugin-react": "^6.1.0",
+    "sharp": "^0.35.4",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^7.0.2",
+    "vite": "^8.2.2",
+    "wawoff2": "^2.0.1"
+  }
+}

@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0e0e10" />
+
+    <title>Studio Confluentes — Fotograf in Koblenz | Portrait, Hochzeit, Business</title>
+    <meta
+      name="description"
+      content="Fotografie aus Koblenz: Portrait, Hochzeit, Business, Familie, Event und Architektur. Ruhige, dokumentarische Bilder vom Mittelrhein — Termine nach Vereinbarung."
+    />
+    <link rel="canonical" href="https://studio-confluentes.example/" />
+
+    <!--
+      PROTOTYP-SICHERUNG — vor dem Livegang entfernen.
+      Solange dies ein unveröffentlichtes Konzept ist, soll es nicht indexiert werden.
+      Diese Zeile und die entsprechende in public/robots.txt löschen, dann ist die
+      vollständige SEO-Konfiguration aktiv.
+    -->
+    <meta name="robots" content="noindex, nofollow" />
+
+    <meta name="geo.region" content="DE-RP" />
+    <meta name="geo.placename" content="Koblenz" />
+    <meta name="author" content="Studio Confluentes" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:site_name" content="Studio Confluentes" />
+    <meta property="og:title" content="Studio Confluentes — Fotograf in Koblenz" />
+    <meta
+      property="og:description"
+      content="Momente, die bleiben. Portrait-, Hochzeits-, Business- und Architekturfotografie aus Koblenz."
+    />
+    <meta property="og:url" content="https://studio-confluentes.example/" />
+    <meta property="og:image" content="https://studio-confluentes.example/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Studio Confluentes — Fotografie aus Koblenz" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Studio Confluentes — Fotograf in Koblenz" />
+    <meta
+      name="twitter:description"
+      content="Momente, die bleiben. Fotografie aus Koblenz und vom Mittelrhein."
+    />
+    <meta name="twitter:image" content="https://studio-confluentes.example/og-image.jpg" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Das Hero-Bild ist das LCP-Element und wird deshalb vorgeladen. -->
+    <link
+      rel="preload"
+      as="image"
+      href="/img/hero-main-1600.avif"
+      imagesrcset="/img/hero-main-960.avif 960w, /img/hero-main-1600.avif 1600w, /img/hero-main-2400.avif 2400w"
+      imagesizes="100vw"
+      type="image/avif"
+      fetchpriority="high"
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": ["LocalBusiness", "ProfessionalService"],
+            "@id": "https://studio-confluentes.example/#studio",
+            "name": "Studio Confluentes",
+            "alternateName": "Studio Confluentes — Fotografie Koblenz",
+            "description": "Fotostudio in Koblenz für Portrait-, Hochzeits-, Business-, Familien-, Event- und Architekturfotografie.",
+            "url": "https://studio-confluentes.example/",
+            "image": "https://studio-confluentes.example/og-image.jpg",
+            "logo": "https://studio-confluentes.example/favicon.svg",
+            "telephone": "+49-261-9900012",
+            "email": "hallo@studio-confluentes.example",
+            "priceRange": "$$",
+            "currenciesAccepted": "EUR",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Koblenz",
+              "postalCode": "56068",
+              "addressRegion": "Rheinland-Pfalz",
+              "addressCountry": "DE"
+            },
+            "geo": { "@type": "GeoCoordinates", "latitude": 50.3569, "longitude": 7.5939 },
+            "areaServed": [
+              { "@type": "City", "name": "Koblenz" },
+              { "@type": "AdministrativeArea", "name": "Mittelrhein" },
+              { "@type": "AdministrativeArea", "name": "Westerwald" },
+              { "@type": "AdministrativeArea", "name": "Eifel" }
+            ],
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "09:00",
+                "closes": "18:00"
+              }
+            ],
+            "knowsLanguage": ["de", "en"],
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Fotografische Leistungen",
+              "itemListElement": [
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Portraitfotografie", "serviceType": "Portraitfotografie" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hochzeitsreportage", "serviceType": "Hochzeitsfotografie" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Business & Branding", "serviceType": "Businessfotografie" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Familie & Neugeborene", "serviceType": "Familienfotografie" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Event & Reportage", "serviceType": "Eventfotografie" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Architektur & Interior", "serviceType": "Architekturfotografie" } }
+              ]
+            }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://studio-confluentes.example/#website",
+            "url": "https://studio-confluentes.example/",
+            "name": "Studio Confluentes",
+            "inLanguage": "de-DE",
+            "publisher": { "@id": "https://studio-confluentes.example/#studio" }
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://studio-confluentes.example/#webpage",
+            "url": "https://studio-confluentes.example/",
+            "name": "Studio Confluentes — Fotograf in Koblenz",
+            "isPartOf": { "@id": "https://studio-confluentes.example/#website" },
+            "about": { "@id": "https://studio-confluentes.example/#studio" },
+            "inLanguage": "de-DE"
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>
+      <div style="padding: 3rem 1.5rem; font-family: system-ui, sans-serif; max-width: 40rem">
+        <h1>Studio Confluentes — Fotografie aus Koblenz</h1>
+        <p>
+          Für die Bildergalerie dieser Seite wird JavaScript benötigt. Sie erreichen das Studio
+          direkt unter <a href="mailto:hallo@studio-confluentes.example">hallo@studio-confluentes.example</a>
+          oder telefonisch unter <a href="tel:+492619900012">+49 261 99 000 12</a>.
+        </p>
+      </div>
+    </noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
